@@ -1,26 +1,39 @@
 package com.juliette.sudoku.grid;
 
 public class Square {
-	private Integer row;
-	private Integer column;
-	private Integer value;
+	private int row;
+	private int column;
+	private int value;
 	
-	public Square(Integer myRow, Integer myColumn, Integer myValue){
+	public Square(int myRow, int myColumn, int myValue){
 		this.row = myRow;
 		this.column = myColumn;
 		this.value = myValue;
+	}
+	
+	public Square(int myRow, int myColumn) {
+		this.row = myRow;
+		this.column = myColumn;
+		this.value = -1;
 	}
 	
 	public String getKey() {
 		return this.row + "-" + this.column;
 	}
 
-	public Integer getValue() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setValue(Integer value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 
+	public String getDiplayableValue() {
+		if (value == -1) {
+			return " ";
+		} else {
+			return "" + value;
+		}
+	}
 }
